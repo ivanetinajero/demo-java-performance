@@ -159,6 +159,59 @@ Lee un archivo de texto línea por línea usando `BufferedReader`, calcula la ed
 **Uso:**
 Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el conteo por rangos de edad y los logs en consola.
 
+
+
+### 8. Búsqueda de emails duplicados
+
+**Clase:** `dev.itinajero.app.performance.basics.FindDuplicateEmails`
+
+**Descripción:**
+Lee un archivo de texto línea por línea usando `BufferedReader`, extrae el email de cada registro y detecta si hay emails duplicados usando un `HashSet`. Imprime el total de emails duplicados encontrados y muestra ejemplos en consola, junto con el tiempo total de procesamiento.
+
+**Conceptos clave:**
+- Detección de duplicados en grandes volúmenes de datos
+- Uso eficiente de `HashSet` para búsquedas rápidas
+- Parsing de texto y separación de campos
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Notas:**
+- El código detecta duplicados exactos de email, no coincidencias parciales.
+- Para búsquedas exactas en bash, se recomienda delimitar el patrón o usar herramientas como `awk`.
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el total de emails duplicados y ejemplos en consola.
+
+
+### 9. Búsqueda de duplicados por nombre, apellidos y email
+
+**Clase:** `dev.itinajero.app.performance.basics.FindDuplicateNameEmail`
+
+**Descripción:**
+Lee un archivo de texto línea por línea usando `BufferedReader`, y detecta registros duplicados considerando la combinación de nombre, apellidos y email como clave única. Es equivalente a realizar un `GROUP BY nombre, apellidos, email` en SQL y buscar los grupos con más de un registro.
+
+**Conceptos clave:**
+- Agrupamiento y detección de duplicados por clave compuesta
+- Uso eficiente de `HashSet` para búsquedas rápidas
+- Parsing de texto y separación de campos
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Ejemplo de línea en el archivo:**
+```
+Juan,Pérez,juan.perez@email.com,35,México,15000
+Ana,López,ana.lopez@email.com,28,España,18000
+Juan,Pérez,juan.perez@email.com,35,México,15000
+```
+En este caso, la combinación "Juan:Pérez:juan.perez@email.com" aparece dos veces, por lo que se detecta como duplicado.
+
+**Notas:**
+- El código agrupa por nombre, apellidos y email, y detecta si la combinación aparece más de una vez.
+- Imprime el total de duplicados y muestra ejemplos en consola.
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el total de duplicados y ejemplos en consola.
+
 ---
 
 
