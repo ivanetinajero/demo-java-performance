@@ -247,6 +247,56 @@ Pedro,Gómez,pedro.gomez@email.com,1987-03-01,Chile,12000
 **Uso:**
 Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el conteo por año de nacimiento y los logs en consola.
 
----
+
+### 11. Carga masiva a MySQL con JDBC puro (Batch Insert)
+
+**Clase:** `dev.itinajero.app.jdbc.BatchInsertPeople`
+
+**Descripción:**
+Carga masiva de registros desde un archivo de texto a una tabla MySQL usando JDBC puro y batch insert. Lee el archivo línea por línea, separa los campos y utiliza un `PreparedStatement` para insertar los datos en lotes (batch) de tamaño configurable, optimizando el rendimiento y reduciendo la cantidad de commits.
+
+**Conceptos clave:**
+- Uso eficiente de `PreparedStatement` y batch insert
+- Control de transacciones con `setAutoCommit(false)` y `commit()` por lote
+- Manejo de recursos con try-with-resources (cierre automático de conexión, statement y archivo)
+- Inserción de grandes volúmenes de datos en una sola conexión abierta
+- Optimización de batchSize para balancear velocidad y uso de memoria
+- Buenas prácticas de logging y manejo de errores
+
+**Notas:**
+- El tamaño del batch (`batchSize`) es configurable; valores grandes (2000, 5000, 10000) mejoran la velocidad, pero requieren más memoria.
+- Si el total de registros no es múltiplo exacto del batch, el bloque final asegura que los registros restantes también se inserten.
+- Toda la carga se realiza sobre una sola conexión abierta a la base de datos, lo que mejora la eficiencia y asegura la atomicidad de los lotes.
+- El cierre de recursos es automático gracias a try-with-resources.
+- Si la tabla tiene índices o claves foráneas, desactívalos temporalmente para cargas muy grandes.
+- Para cargas aún más rápidas, considera `LOAD DATA INFILE` de MySQL (requiere permisos y formato especial).
+
+**Uso:**
+1. Modifica la variable `filePath` para indicar el archivo a cargar (por ejemplo, `tmp/1m-registros-personas.txt`).
+2. Ajusta los datos de conexión (`url`, `user`, `password`) según tu entorno MySQL.
+3. Cambia el valor de `batchSize` para experimentar con el rendimiento.
+4. Compila y ejecuta la clase para realizar la carga masiva y observar los logs de progreso y tiempo total.
+
+**Estructura esperada de la tabla Personas:**
+```sql
+CREATE TABLE Personas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    email VARCHAR(150),
+    fechaNacimiento DATE,
+    estadoCivil VARCHAR(50),
+    profesion VARCHAR(100),
+    salario DECIMAL(12,2),
+    peso DECIMAL(6,2),
+    pais VARCHAR(100)
+);
+```
+
+**Ejemplo de línea en el archivo:**
+```
+FELICIANO,TUYIN,felicianotuyin@instructor.net,1974-11-08,Casado(a),Ladrillero,9000,56.9,Reino Unido
+CLAUDIA SILVIA,HOMA,claudiasilvia.h@groupmail.com,2007-05-01,Casado(a),Coach,10600,94.6,Líbano
+```
 
 

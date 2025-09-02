@@ -42,7 +42,7 @@ public class BatchInsertPeople {
 
       // Tamaño del batch: cantidad de registros que se insertan antes de hacer commit. Un valor mayor reduce la cantidad de viajes a la base y mejora el
       // rendimiento, pero si es demasiado grande puede agotar la memoria o saturar buffers. Prueba con 1000, 2000, 5000, 10000 y compara tiempos.
-      int batchSize = 1000;
+      int batchSize = 5000;
 
       log("Iniciando carga masiva a MySQL: " + filePath);
       long startTime = System.currentTimeMillis();
