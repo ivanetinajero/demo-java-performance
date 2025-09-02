@@ -86,6 +86,29 @@ Lee un archivo de texto línea por línea usando `BufferedReader`, separa los ca
 **Uso:**
 Modifica la variable `filePath` en la clase para especificar el archivo a leer (por ejemplo, `tmp/1m-registros-personas.txt`). Compila y ejecuta la clase para ver el salario promedio por país y los logs en consola.
 
+
+
+### 5. Lectura desde un número de línea específico
+
+**Clase:** `dev.itinajero.app.performance.basics.ReadFromLineNumber`
+
+**Descripción:**
+Permite saltar las primeras N líneas de un archivo de texto y comenzar a leer desde la línea que indiques. El ejemplo muestra cómo descartar líneas hasta llegar a la deseada y luego procesar (o mostrar) las siguientes líneas. Incluye logs con fecha y hora y mide el tiempo total de lectura.
+
+**Conceptos clave:**
+- Salto de líneas en archivos de texto
+- Uso de `BufferedReader`
+- Control de flujo y contadores de línea
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Notas:**
+- Si el número de línea de inicio es muy alto, el programa igualmente debe leer y descartar todas las líneas anteriores una por una.
+- Si quieres procesar hasta el final del archivo, elimina la condición que limita la cantidad de líneas leídas después del salto.
+
+**Uso:**
+Modifica la variable `filePath` para el archivo a leer y `startLine` para indicar desde qué línea comenzar. Compila y ejecuta la clase para ver el resultado y los logs en consola.
+
 ---
 
 
