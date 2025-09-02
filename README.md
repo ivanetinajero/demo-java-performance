@@ -109,6 +109,56 @@ Permite saltar las primeras N líneas de un archivo de texto y comenzar a leer d
 **Uso:**
 Modifica la variable `filePath` para el archivo a leer y `startLine` para indicar desde qué línea comenzar. Compila y ejecuta la clase para ver el resultado y los logs en consola.
 
+
+
+### 6. Lectura con avance en porcentaje
+
+**Clase:** `dev.itinajero.app.performance.basics.FileReadWithProgress`
+
+**Descripción:**
+Lee un archivo de texto línea por línea, mostrando en consola el avance en porcentaje (por ejemplo, 10%, 20%, ..., 100%) conforme se procesa el archivo. Primero cuenta el total de líneas y luego procesa el archivo mostrando el progreso. Incluye logs con fecha y hora y mide el tiempo total de procesamiento.
+
+**Conceptos clave:**
+- Lectura eficiente de archivos grandes
+- Cálculo y visualización de progreso
+- Uso de `BufferedReader`
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Notas:**
+- El avance se muestra solo en múltiplos de 10% para evitar saturar la consola.
+- Es necesario recorrer el archivo dos veces: una para contar líneas y otra para procesar mostrando el avance.
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el avance en porcentaje y los logs en consola.
+
+
+
+### 7. Agrupamiento por rangos de edad
+
+**Clase:** `dev.itinajero.app.performance.basics.GroupByAgeRange`
+
+**Descripción:**
+Lee un archivo de texto línea por línea usando `BufferedReader`, calcula la edad de cada persona a partir de la fecha de nacimiento y agrupa el conteo en rangos de edad: 0-18, 19-30, 31-50 y 51+. Incluye logs con fecha y hora y mide el tiempo total de procesamiento.
+
+**Conceptos clave:**
+- Procesamiento de fechas y cálculo de edad
+- Agrupamiento y conteo por rangos
+- Uso de `BufferedReader`, `SimpleDateFormat` y `java.time`
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Resultados de performance:**
+- Para un archivo de 10 millones de registros:
+	- 0-18: 232,582
+	- 19-30: 2,791,376
+	- 31-50: 4,649,905
+	- 51+: 2,326,137
+	- Tiempo total de procesamiento: 23,559 ms
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el conteo por rangos de edad y los logs en consola.
+
 ---
 
 
