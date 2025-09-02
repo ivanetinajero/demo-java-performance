@@ -22,8 +22,6 @@ Lee un archivo de texto línea por línea usando `BufferedReader`, cuenta el nú
 **Uso:**
 Modifica la variable `filePath` en la clase para especificar el archivo a leer (por ejemplo, `tmp/1m-registros-personas.txt`). Compila y ejecuta la clase para ver el rendimiento y los logs en consola.
 
----
-
 
 ### 2. Lectura de archivos con buffer de bytes y conteo de líneas
 
@@ -46,4 +44,48 @@ Lee un archivo de texto usando un buffer de bytes (`FileInputStream`), suma la c
 **Uso:**
 Modifica la variable `filePath` en la clase para especificar el archivo a leer (por ejemplo, `tmp/1m-registros-personas.txt`). Compila y ejecuta la clase para ver el rendimiento, el conteo de líneas y los logs en consola.
 
+
+### 3. Conteo de personas por país
+
+**Clase:** `dev.itinajero.app.performance.basics.CountPeopleByCountry`
+
+**Descripción:**
+Lee un archivo de texto línea por línea usando `BufferedReader`, separa los campos de cada línea y cuenta cuántas personas hay por país usando un `HashMap`. Mide el tiempo total de procesamiento y muestra logs con fecha y hora.
+
+**Conceptos clave:**
+- Procesamiento de archivos grandes con lógica de negocio
+- Uso de `BufferedReader` y `HashMap`
+- Parsing de texto y separación de campos
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Resultados de performance:**
+- Para un archivo de 10 millones de registros, el conteo por país tomó aproximadamente 11.4 segundos (11431 ms).
+- Solo contar líneas (sin procesamiento adicional) en el mismo archivo tomó aproximadamente 5 segundos (4997 ms).
+- Esto demuestra cómo el procesamiento extra (split, trim, conteo en mapa) impacta el tiempo total.
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer (por ejemplo, `tmp/10m-registros-personas.txt`). Compila y ejecuta la clase para ver el conteo por país, el total de líneas y los logs en consola.
+
+
+
+### 4. Salario promedio por país
+
+**Clase:** `dev.itinajero.app.performance.basics.AverageSalaryByCountry`
+
+**Descripción:**
+Lee un archivo de texto línea por línea usando `BufferedReader`, separa los campos de cada línea, acumula la suma de salarios y el conteo de personas por país usando dos mapas (`HashMap`). Al final, calcula y muestra el salario promedio por país. Incluye logs con fecha y hora y mide el tiempo total de procesamiento.
+
+**Conceptos clave:**
+- Procesamiento numérico y agrupamiento por clave
+- Uso de `BufferedReader` y `HashMap`
+- Parsing de texto, manejo de errores numéricos
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer (por ejemplo, `tmp/1m-registros-personas.txt`). Compila y ejecuta la clase para ver el salario promedio por país y los logs en consola.
+
 ---
+
+

@@ -11,7 +11,7 @@ public class FileReadLineByLine {
     public static void main(String[] args) {
         
         // Cambia esta variable para probar diferentes archivos
-        String filePath = "tmp/1m-registros-personas.txt";
+        String filePath = "tmp/10m-registros-personas.txt";
         int lineCount = 0;
         log("Iniciando lectura de archivo: " + filePath);
         long startTime = System.currentTimeMillis();
