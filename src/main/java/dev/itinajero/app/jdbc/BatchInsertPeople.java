@@ -12,29 +12,29 @@ import java.util.Date;
 /**
  * Ejemplo de carga masiva (batch insert) de personas a MySQL usando JDBC puro.
   
-  Estructura esperada de la tabla:
+   Estructura esperada de la tabla:
  
-  CREATE TABLE Personas (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      nombre VARCHAR(100),
-      apellido VARCHAR(100),
-      email VARCHAR(150),
-      fechaNacimiento DATE,
-      estadoCivil VARCHAR(50),
-      profesion VARCHAR(100),
-      salario DECIMAL(12,2),
-      peso DECIMAL(6,2),
-      pais VARCHAR(100)
-  );
+   CREATE TABLE Personas (
+      id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+      nombre VARCHAR(150) NOT NULL,
+      apellido VARCHAR(150) NOT NULL,
+      email VARCHAR(150) NOT NULL,
+      fechaNacimiento DATE NOT NULL,
+      estadoCivil VARCHAR(50) NOT NULL,
+      profesion VARCHAR(150) NOT NULL,
+      salario DOUBLE NOT NULL,
+      peso DOUBLE NOT NULL,
+      pais VARCHAR(150) NOT NULL
+   );
   
-  Ejemplo de líneas en el archivo:
+   Ejemplo de líneas en el archivo:
    FELICIANO,TUYIN,felicianotuyin@instructor.net,1974-11-08,Casado(a),Ladrillero,9000,56.9,Reino Unido
    CLAUDIA SILVIA,HOMA,claudiasilvia.h@groupmail.com,2007-05-01,Casado(a),Coach,10600,94.6,Líbano
  */
 public class BatchInsertPeople {
    public static void main(String[] args) throws Exception {
       // Ruta del archivo de datos a cargar
-      String filePath = "tmp/1m-registros-personas.txt"; // Cambia el archivo según lo necesites
+      String filePath = "tmp/10m-registros-personas.txt"; // Cambia el archivo según lo necesites
       // Datos de conexión a MySQL
       String url = "jdbc:mysql://127.0.0.1:3308/test?useSSL=false&serverTimezone=America/Mexico_City&allowPublicKeyRetrieval=true";
       String user = "root";
