@@ -212,6 +212,41 @@ En este caso, la combinación "Juan:Pérez:juan.perez@email.com" aparece dos vec
 **Uso:**
 Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el total de duplicados y ejemplos en consola.
 
+
+### 10. Conteo de personas por año de nacimiento
+
+**Clase:** `dev.itinajero.app.performance.basics.CountPeopleByBirthYear`
+
+**Descripción:**
+Lee un archivo de texto línea por línea usando `BufferedReader` y cuenta cuántas personas hay por cada año de nacimiento usando `LocalDate` y `DateTimeFormatter`. El resultado es un conteo agrupado por año, útil para practicar el manejo de fechas modernas en Java.
+
+**Conceptos clave:**
+- Manejo de fechas con `LocalDate` y `DateTimeFormatter`
+- Agrupamiento y conteo por año
+- Parsing de texto y separación de campos
+- Medición de tiempos de ejecución
+- Buenas prácticas de logging
+
+**Ejemplo de línea en el archivo:**
+```
+Juan,Pérez,juan.perez@email.com,1987-05-12,México,15000
+Ana,López,ana.lopez@email.com,1995-11-23,España,18000
+Pedro,Gómez,pedro.gomez@email.com,1987-03-01,Chile,12000
+```
+
+**Resultado esperado:**
+```
+1987: 2
+1995: 1
+```
+
+**Notas:**
+- El código ignora registros con fechas inválidas.
+- Imprime el total de personas por año de nacimiento y el tiempo de procesamiento.
+
+**Uso:**
+Modifica la variable `filePath` en la clase para especificar el archivo a leer. Compila y ejecuta la clase para ver el conteo por año de nacimiento y los logs en consola.
+
 ---
 
 
